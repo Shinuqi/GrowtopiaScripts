@@ -160,7 +160,13 @@ function harvest(list)
             sleep(delayHarvest)
             if bot.status == 1 then
                 if world:getTile(tile.x,tile.y).fg == SeedID or world:getTile(tile.x,tile.y).bg == SeedID then
-                    bot:hit(tile.x,tile.y)
+		    if bot:isInTile(tile.x,tile.y) then
+                    	bot:hit(tile.x,tile.y)
+		    else
+		    	bot:findPath(tile.x,tile.y)
+			sleep(delayHarvest)
+			bot:hit(tile.x,tile.y)
+		    end
                     sleep(delayHarvest) 
                 end
             else
@@ -168,7 +174,13 @@ function harvest(list)
             end
             if bot.status == 1 then
                 if world:getTile(tile.x,tile.y).fg == SeedID or world:getTile(tile.x,tile.y).bg == SeedID then
-                    bot:hit(tile.x,tile.y)
+                    if bot:isInTile(tile.x,tile.y) then
+                    	bot:hit(tile.x,tile.y)
+		    else
+		    	bot:findPath(tile.x,tile.y)
+			sleep(delayHarvest)
+			bot:hit(tile.x,tile.y)
+		    end
                     sleep(delayHarvest) 
                 end
             else
@@ -257,9 +269,17 @@ function plant(list)
                 Reconnect(list)
                 bot:findPath(tile.x,tile.y)
                 sleep(PlantDelay)
-                AnlikYer()
-                sleep(50)
-                bot:place(Botx,Boty,SeedID)
+		if bot:isInTile(tile.x,tile.y) then
+                	bot:place(tile.x,tile.y,SeedID)
+			sleep(PlantDelay)
+		else
+			bot:findPath(tile.x,tile.y)
+                	sleep(PlantDelay)
+			if bot:isInTile(tile.x,tile.y) then
+				bot:place(tile.x,tile.y,SeedID)
+				sleep(PlantDelay)
+			end
+		end
             end
         else
             Reconnect(list)
@@ -316,17 +336,23 @@ function PNB(list)
             sleep(2000)
             AnlikYer()
         end
-        if tilealfg(Botx-1,Boty).tilefg == 0 then   
+        if tilealfg(Botx-1,Boty).tilefg == 0 then 
+	if bot:isInTile(Botx,Boty) then
             bot:place(Botx-1,Boty,BlockID)
             sleep(delayplace)
+	end
         end
         if tilealfg(Botx-1,Boty+1).tilefg == 0 then
+	if bot:isInTile(Botx,Boty) then
             bot:place(Botx-1,Boty+1,BlockID)
             sleep(delayplace) 
+	    end
         end
         if tilealfg(Botx-1,Boty-1).tilefg == 0 then
+	if bot:isInTile(Botx,Boty) then
             bot:place(Botx-1,Boty-1,BlockID)
             sleep(delayplace) 
+	    end
         end
         while (tilealfg(Botx-1,Boty).tilefg ~= 0 or tilealbg(Botx,Boty).tilebg ~= 0) do
             Reconnect(list)
@@ -335,8 +361,10 @@ function PNB(list)
                 sleep(1000)
                 AnlikYer()
             end
+	    if bot:isInTile(Botx,Boty) then
             bot:hit(Botx-1,Boty) 
             sleep(delaybreak) 
+	    end
         end
         while (tilealfg(Botx-1,Boty+1).tilefg ~= 0 or tilealbg(Botx-1,Boty+1).tilebg ~= 0) do
             Reconnect(list)
@@ -345,8 +373,10 @@ function PNB(list)
                 sleep(1000)
                 AnlikYer()
             end
+	    if bot:isInTile(Botx,Boty) then
             bot:hit(Botx-1,Boty+1)
             sleep(delaybreak) 
+	    end
         end
         while (tilealfg(Botx-1,Boty-1).tilefg ~= 0 or tilealbg(Botx-1,Boty-1).tilebg ~= 0) do
             Reconnect(list)
@@ -355,8 +385,10 @@ function PNB(list)
                 sleep(1000)
                 AnlikYer()
             end
+	    if bot:isInTile(Botx,Boty) then
             bot:hit(Botx-1,Boty-1) 
             sleep(delaybreak) 
+	    end
         end
 
     end
