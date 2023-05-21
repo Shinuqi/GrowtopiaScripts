@@ -252,10 +252,8 @@ end
 function TrashTheJunks()
     for i, trash in ipairs(trashList) do
         if inventory:getItemCount(trash) > WhenTrashCount then
-          bot:sendPacket(2, "action|trash\n|itemID|"..trash)
-          sleep(2000)
-          bot:sendPacket(2, "action|dialog_return\ndialog_name|trash_item\nitemID|"..trash.."|\ncount|"..inventory:getItemCount(trash))
-          sleep(2000)
+            bot:trash(trash, inventory:getItemCount(trash))
+            sleep(1000)
         end
     end
 end
@@ -407,42 +405,7 @@ function SecondTT(seconds)
   end
 end
 
-httpClient = HttpClient.new()
-httpClient:setMethod(Method.get)
-httpClient.url = "https://rentry.co/ShinuqiRotation/raw"
-httpClient.headers["User-Agent"] = "Lucifer"
-
-local httpResult = httpClient:request()
-local response = httpResult.body
-
-Owners = {}
-for kelime in response:gmatch("[^,]+") do
-  table.insert(Owners, kelime)
-end
-
-local veri_sayisi = 0
-for _ in ipairs(Owners) do
-  veri_sayisi = veri_sayisi + 1
-end
-
 isOwner = true
-
-for _, player in pairs(world:getPlayers()) do
-	for i=1, veri_sayisi do
-    	if string.lower(player.name) == string.lower(Owners[i]) then
-      		isOwner = true
-      		bot:say("Lets Begin")
-			GonWebhook("Lets Begin")
-      		sleep(2000)
-      		break
-    	end
-	end
-end
-
-if isOwner == false then
-	bot:say("You Are Not Owner")
-    GonWebhook("You Are Not Owner")
-end
 
 local message = "Farm Worlds:\n"
 for i = 1, #farmWorlds do
