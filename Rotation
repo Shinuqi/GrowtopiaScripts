@@ -23,7 +23,7 @@ function join(a,b)
     sleep(3000)
     bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
     sleep(3000)
-    if not bot:isInWorld then
+    if not bot:isInWorld() then
     	join(a,b)
     end
     AnlikYer()
