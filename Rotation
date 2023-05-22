@@ -23,12 +23,12 @@ function join(a,b)
     sleep(3000)
     bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
     sleep(3000)
-    if not bot:isInWorld() then
+    Dunyadami = tostring(world.name)
+    if Dunyadami == "" or Dunyadami == "EXIT" then
     	join(a,b)
     end
     AnlikYer()
-    Dunyadami = tostring(world.name)
-    if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
+    if Dunyadami ~= "" or Dunyadami ~= "EXIT" then
         if world:getTile(Botx,Boty).fg == 6 then
             join(a,b)
         end
