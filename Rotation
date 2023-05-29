@@ -16,7 +16,7 @@ function GonWebhook(Shinuqi)
     url = "https://cdn.discordapp.com/emojis/1016295109970645022.gif?size=80&quality=lossless"
     }
     $color = Get-Random -Minimum 0 -Maximum 16777215
-    $title = 'Shinuqi#2111 - Clear World'
+    $title = 'Shinuqi#2111 - Rotation'
     $description = "**]]..Shinuqi..[[**"
   
     $footer = [PSCustomObject]@{
