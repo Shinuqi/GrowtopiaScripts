@@ -10,13 +10,41 @@ bot.collect_interval = 400
 bot.object_collect_delay = 600
 bot.auto_collect = false
 function GonWebhook(Shinuqi)
-    wh = Webhook.new(WebhookUrl)
-    wh.username = "Shinuqi#2111"
-    wh.avatar_url = "https://cdn.discordapp.com/avatars/208654299738144768/bb27c340964dcd6a75ff1883d1341a6e.png?size=1024"
-    wh.embed1.use = true
-    wh.embed1.title = "Rotation by Shinuqi#2111"
-    wh.embed1.description = Shinuqi
-    wh:send()
+    local script = [[
+    $webHookUrl = "]]..WebhookUrl..[["
+    $thumbnailObject = [PSCustomObject]@{
+    url = "https://cdn.discordapp.com/emojis/1016295109970645022.gif?size=80&quality=lossless"
+    }
+    $color = Get-Random -Minimum 0 -Maximum 16777215
+    $title = 'Shinuqi#2111 - Clear World'
+    $description = "**]]..Shinuqi..[[**"
+  
+    $footer = [PSCustomObject]@{
+        icon_url = "https://cdn.discordapp.com/emojis/978628955907170314.gif?size=96&quality=lossless"
+        text = "]].."Shinuqi#2111 | Date : "..(os.date"%d/%m/%y":upper().." Hour : ")..os.date("%I")..":"..os.date("%M").." "..os.date("%p"):upper()..[["
+    }
+  
+    $embedObject = [PSCustomObject]@{
+        color = $color
+        title = $title
+        description = $description
+        thumbnail = $thumbnailObject
+        footer = $footer
+    }
+  
+    [System.Collections.ArrayList]$embedArray = @()
+    $embedArray.Add($embedObject)
+  
+    $payload = [PSCustomObject]@{
+        embeds = $embedArray
+    }
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    Invoke-RestMethod -Uri $webHookUrl -Body ($payload | ConvertTo-Json -Depth 4) -Method Post -ContentType 'application/json'
+    ]]
+  
+    local pipe = io.popen("powershell -command -", "w")
+    pipe:write(script)
+    pipe:close()
 end
 
 function join(a,b) 
