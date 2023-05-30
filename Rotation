@@ -50,7 +50,7 @@ end
 function join(a,b) 
     sleep(3000)
     bot:sendPacket(3,"action|join_request\nname|"..a.."|"..b.."\ninvitedWorld|0")
-    sleep(3000)
+    sleep(6000)
     Dunyadami = tostring(world.name)
     if Dunyadami == "" or Dunyadami == "EXIT" then
     	join(a,b)
@@ -104,6 +104,7 @@ function AnlikYer()
             bot:connect()
             sleep(10000)
         end
+	sleep(5000)
         GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
     end
     Dunyadami = tostring(world.name)
@@ -123,6 +124,7 @@ function Reconnect(list)
             bot:connect()
             sleep(10000)
         end
+	sleep(5000)
         GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(list,FarmWorldID)
     end
@@ -145,6 +147,7 @@ function Reconnectdropseed()
             bot:connect()
             sleep(10000)
         end
+	sleep(5000)
         GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(StorageWorld,StorageWorldSeedID)
     end
@@ -167,6 +170,7 @@ function Reconnectdroppack()
             bot:connect()
             sleep(10000)
         end
+	sleep(5000)
         GonWebhook("Bot Back To Online ".."<@" .. YourDiscordid .. ">")
         join(PackDropWorld,PackDropWorldID)
     end
