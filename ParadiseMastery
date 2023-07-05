@@ -1,3 +1,7 @@
+for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
+  v:Disable()
+  print("yes")
+end
 getgenv().JXMysticFarmerConfig = {
     AutoServerTripleDamage = true,
     MineMode = "Multi", -- Multi or All
