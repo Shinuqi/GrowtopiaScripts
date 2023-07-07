@@ -1,6 +1,6 @@
 
 getgenv().JXMysticFarmerConfig = {
-    AutoServerTripleDamage = true,
+    AutoServerTripleDamage = false,
     MineMode = "Multi", -- Multi or All
     Areas = {
         ["Mystic Mine"] = {
@@ -16,12 +16,12 @@ getgenv().JXMysticFarmerConfig = {
         },
     },
     Webhook = {
-        EnabledGemWebhook = true,
-        EnableFruitWebhook = true,
+        EnabledGemWebhook = false,
+        EnableFruitWebhook = false,
         GemUrl = "https://discord.com/api/webhooks/1089549678808420453/6DcfHxP57NEwoYcgXPYew-6wrLK4Bf6dFgHUVFotSGs3Ipcdn2i5yzHsyuMuj2QFeDUV",
         FruitUrl = "https://discord.com/api/webhooks/1089549678808420453/6DcfHxP57NEwoYcgXPYew-6wrLK4Bf6dFgHUVFotSGs3Ipcdn2i5yzHsyuMuj2QFeDUV",
-        ShowUsername = true,
-        ShowFruits = true,
+        ShowUsername = false,
+        ShowFruits = false,
         Delay = 300, -- seconds
     },
     Fruits = {
