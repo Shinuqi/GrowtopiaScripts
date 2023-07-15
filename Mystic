@@ -48,7 +48,7 @@ getgenv().JXMysticFarmerConfig = {
         }
     },
     Preformace = {
-        FPS = 25,
+        FPS = 15,
     }
 }
 
@@ -57,6 +57,8 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
   print("yes")
 end
+local RunService = game:GetService('RunService')
+RunService:Set3dRenderingEnabled(false)
 if not LPH_OBFUSCATED then
     LPH_JIT_MAX = function(...) return(...) end;
     LPH_NO_VIRTUALIZE = function(...) return(...) end;
