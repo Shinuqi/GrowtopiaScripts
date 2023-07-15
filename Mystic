@@ -48,7 +48,7 @@ getgenv().JXMysticFarmerConfig = {
         }
     },
     Preformace = {
-        FPS = 144,
+        FPS = 25,
     }
 }
 
