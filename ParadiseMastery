@@ -1,4 +1,4 @@
-Render = true
+Render = false
 getgenv().JXMysticFarmerConfig = {
     AutoServerTripleDamage = false,
     MineMode = "Multi", -- Multi or All
@@ -48,7 +48,7 @@ getgenv().JXMysticFarmerConfig = {
         }
     },
     Preformace = {
-        FPS = 50,
+        FPS = 9999,
     }
 }
 
