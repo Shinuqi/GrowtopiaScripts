@@ -68,13 +68,14 @@ ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 
 local TextBox = Instance.new("TextBox")
 TextBox.Parent = ScreenGui
-TextBox.Size = UDim2.new(0, 200, 0, 50)
-TextBox.FontSize = Enum.FontSize.Size48
-TextBox.Position = UDim2.new(0.5, -100, 0.5, -25)
+TextBox.Size = UDim2.new(0, 500, 0, 60)
+TextBox.FontSize = Enum.FontSize.Size60
+TextBox.Position = UDim2.new(0.5, -250, 0.5, -25)
 TextBox.Text = isim
 TextBox.Selectable = false
 TextBox.ClearTextOnFocus = false
-TextBox.TextColor3 = Color3.new(1, 0, 0)
+TextBox.TextColor3 = Color3.new(1, 0, 0) -- set text color to red
+TextBox.BackgroundColor3 = Color3.new(0, 0, 0) -- set background color to black
 
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
