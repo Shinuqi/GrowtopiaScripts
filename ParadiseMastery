@@ -58,6 +58,24 @@ getgenv().JXMysticFarmerConfig = {
 }
 
 repeat wait() until game:IsLoaded()
+
+
+local playerx = game.Players.LocalPlayer
+local isim = playerx.DisplayName
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+local TextBox = Instance.new("TextBox")
+TextBox.Parent = ScreenGui
+TextBox.Size = UDim2.new(0, 200, 0, 50)
+TextBox.FontSize = Enum.FontSize.Size48
+TextBox.Position = UDim2.new(0.5, -100, 0.5, -25)
+TextBox.Text = isim
+TextBox.Selectable = false
+TextBox.ClearTextOnFocus = false
+TextBox.TextColor3 = Color3.new(1, 0, 0)
+
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
   print("Done")
