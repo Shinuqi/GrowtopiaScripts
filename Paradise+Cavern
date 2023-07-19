@@ -1,9 +1,3 @@
-local reducelag = true
-local NoRender = true
-
-local RunService = game:GetService('RunService')
-local InputService = game:GetService('UserInputService')
-
 getgenv().JXMysticFarmerConfig = {
     AutoServerTripleDamage = false,
     MineMode = "Multi", -- Multi or All
@@ -53,86 +47,16 @@ getgenv().JXMysticFarmerConfig = {
         }
     },
     Preformace = {
-        FPS = 9999,
+        FPS = 30,
     }
 }
 
 repeat wait() until game:IsLoaded()
 
-local playerx = game.Players.LocalPlayer
-local isim = playerx.DisplayName
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-
-local TextBox = Instance.new("TextBox")
-TextBox.Parent = ScreenGui
-TextBox.Size = UDim2.new(0, 1000, 0, 70)
-TextBox.FontSize = Enum.FontSize.Size60
-TextBox.Position = UDim2.new(0.5, -500, 0.5, -25)
-TextBox.Text = isim
-TextBox.Selectable = false
-TextBox.ClearTextOnFocus = false
-TextBox.TextColor3 = Color3.new(0, 1, 0) -- set text color to red
-TextBox.BackgroundColor3 = Color3.new(0, 0, 0) -- set background color to black
-
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
   print("Done")
 end
-
-if reducelag then
-            local a = game
-            local b = a.Workspace
-            local c = a.Lighting
-            local d = b.Terrain
-            d.WaterWaveSize = 0
-            d.WaterWaveSpeed = 0
-            d.WaterReflectance = 0
-            d.WaterTransparency = 0
-            c.GlobalShadows = false
-            c.FogEnd = 9e9
-            c.Brightness = 0
-            settings().Rendering.QualityLevel = "Level01"
-            for e, f in pairs(a:GetDescendants()) do
-               if f:IsA("Part") or f:IsA("Union") or f:IsA("CornerWedgePart") or f:IsA("TrussPart") then
-                   f.Material = "Plastic"
-                   f.Reflectance = 0
-               elseif f:IsA("Decal") or f:IsA("Texture") then
-                   f.Transparency = 0
-               elseif f:IsA("ParticleEmitter") or f:IsA("Trail") then
-                   f.Lifetime = NumberRange.new(0)
-               elseif f:IsA("Explosion") then
-                   f.BlastPressure = 0
-                   f.BlastRadius = 0
-               elseif f:IsA("Fire") or f:IsA("SpotLight") or f:IsA("Smoke") or f:IsA("Sparkles") then
-                   f.Enabled = false
-               elseif f:IsA("MeshPart") then
-                   f.Material = "Plastic"
-                   f.Reflectance = 0
-                   f.TextureID = 10385902758728957
-               end
-            end
-            for e, g in pairs(c:GetChildren()) do
-               if
-                   g:IsA("BlurEffect") or g:IsA("SunRaysEffect") or g:IsA("ColorCorrectionEffect") or g:IsA("BloomEffect") or
-                       g:IsA("DepthOfFieldEffect")
-                then
-                   g.Enabled = false
-               end
-            end
-            sethiddenproperty(game.Lighting, "Technology", "Compatibility")
-end
-
-InputService.WindowFocused:Connect(function()
-	RunService:Set3dRenderingEnabled(true)
-end)
-
-InputService.WindowFocusReleased:Connect(function()
-	if NoRender then
-		RunService:Set3dRenderingEnabled(false)
-	end
-end)
 if not LPH_OBFUSCATED then
     LPH_JIT_MAX = function(...) return(...) end;
     LPH_NO_VIRTUALIZE = function(...) return(...) end;
