@@ -16,7 +16,7 @@ getgenv().JXMysticFarmerConfig = {
         },
     },
     Webhook = {
-        EnabledGemWebhook = true,
+        EnabledGemWebhook = false,
         EnableFruitWebhook = false,
         GemUrl = "https://discord.com/api/webhooks/1126749517505626113/Leo0HQgkUoCyxc4qgDhwUM95FaNfZRNUdzbm1MlXdN4K9_eswOpWkIfIpso8xMnaFX4P",
         FruitUrl = "https://discord.com/api/webhooks/1126749517505626113/Leo0HQgkUoCyxc4qgDhwUM95FaNfZRNUdzbm1MlXdN4K9_eswOpWkIfIpso8xMnaFX4P",
@@ -25,8 +25,8 @@ getgenv().JXMysticFarmerConfig = {
         Delay = 600, -- seconds
     },
     Fruits = {
-        Max = 195,
-        StartFarmAt = 160,
+        Max = 99,
+        StartFarmAt = 50,
         FruitsToFarm = {
             "Apple",
             "Orange",
@@ -48,7 +48,7 @@ getgenv().JXMysticFarmerConfig = {
         }
     },
     Preformace = {
-        FPS = 144,
+        FPS = 25,
     }
 }
 repeat wait() until game:IsLoaded()
