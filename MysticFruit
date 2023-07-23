@@ -25,7 +25,7 @@ getgenv().JXMysticFarmerConfig = {
         Delay = 600, -- seconds
     },
     Fruits = {
-        Max = 99,
+        Max = 198,
         StartFarmAt = 50,
         FruitsToFarm = {
             "Apple",
