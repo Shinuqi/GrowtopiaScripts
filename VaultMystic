@@ -1,6 +1,6 @@
 
 getgenv().JXMysticFarmerConfig = {
-    AutoServerTripleDamage = true,
+    AutoServerTripleDamage = false,
     MineMode = "Multi", -- Multi or All
     Areas = {
         ["Mystic Mine"] = {
