@@ -57,7 +57,7 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
 	if FPSBoost == true then
   		local RunService = game:GetService('RunService')
   		RunService:Set3dRenderingEnabled(false)
-		if Config.Misc.Extra.ReduceLag then
+		
             local a = game
             local b = a.Workspace
             local c = a.Lighting
@@ -99,7 +99,7 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
             end
             sethiddenproperty(game.Lighting, "Technology", "Compatibility")
         end
-	end
+	
   print("yes")
 end
 if not LPH_OBFUSCATED then
