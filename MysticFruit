@@ -56,6 +56,7 @@ for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
 	if FPSBoost == true then
 	local InputService = game:GetService('UserInputService')
+	local RunService = game:GetService('RunService')
   	InputService.WindowFocused:Connect(function()
 		RunService:Set3dRenderingEnabled(true)
 	end)
