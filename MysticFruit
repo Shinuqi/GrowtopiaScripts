@@ -55,8 +55,13 @@ repeat wait() until game:IsLoaded()
 for i,v in pairs(getconnections(game.Players.LocalPlayer.Idled)) do
   v:Disable()
 	if FPSBoost == true then
-  		local RunService = game:GetService('RunService')
-  		RunService:Set3dRenderingEnabled(false)
+  		InputService.WindowFocused:Connect(function()
+		RunService:Set3dRenderingEnabled(true)
+	end)
+
+	InputService.WindowFocusReleased:Connect(function()
+			RunService:Set3dRenderingEnabled(false)
+	end)
 		
             local a = game
             local b = a.Workspace
