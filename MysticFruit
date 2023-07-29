@@ -17,11 +17,11 @@ getgenv().JXMysticFarmerConfig = {
     },
     Webhook = {
         EnabledGemWebhook = true,
-        EnableFruitWebhook = true,
+        EnableFruitWebhook = false,
         GemUrl = "https://discord.com/api/webhooks/1126749517505626113/Leo0HQgkUoCyxc4qgDhwUM95FaNfZRNUdzbm1MlXdN4K9_eswOpWkIfIpso8xMnaFX4P",
         FruitUrl = "https://discord.com/api/webhooks/1126749517505626113/Leo0HQgkUoCyxc4qgDhwUM95FaNfZRNUdzbm1MlXdN4K9_eswOpWkIfIpso8xMnaFX4P",
         ShowUsername = true,
-        ShowFruits = true,
+        ShowFruits = false,
         Delay = 600, -- seconds
     },
     Fruits = {
